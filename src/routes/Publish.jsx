@@ -1,20 +1,25 @@
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {ArticleContext} from "../App";
 import Article from "../components/Article/Article";
 
 function Publish({ setArticleList }) {
-    const articleList = useContext(ArticleContext)
+    const articleList = useContext(ArticleContext);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     function submit(event) {
         event.preventDefault();
-        const form = event.currentTarget;
-        const data = new FormData(form);
-        console.log(data)
-        // setArticleList([]);
+        const data = new FormData(event.currentTarget);
+        let obj = {};
+        for (var key of data.keys()) {
+            obj[key] = data.get(key);
+        }
+        console.log(obj)
+        setIsSubmitted(true)
+        // setArticleList(articleList.(obj));
     }
 
     useEffect(() => {
-
+        console.log(articleList)
     })
 
     return (
@@ -23,18 +28,13 @@ function Publish({ setArticleList }) {
 
             <form onSubmit={submit}>
                 <label htmlFor="title">Titre</label>
-                <input id="title"/>
-                <label htmlFor="body">Body</label>
-                <input id="body"/>
+                <input id="title" name="title"/>
+                <label htmlFor="body">Contenu</label>
+                <input id="body" name="body"/>
                 <button type="submit">Soumettre</button>
             </form>
-            <ul>
-                {articleList.map((article) => (
-                    <li key={article.title}>
-                        <Article article={article}/>
-                    </li>
-                ))}
-            </ul>
+
+            {isSubmitted && <p>Submitted !</p>}
         </>
     );
 }
