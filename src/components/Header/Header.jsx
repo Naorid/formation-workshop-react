@@ -3,7 +3,15 @@ import './header.css';
 
 const Header = () => {
   return (
-    <>mon header</>
+    <>
+        <h1>Les bases du dev web</h1>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/post">Publier</a>
+            <a href="/Articles">Articles</a>
+            <a href="/Weather">Météo</a>
+        </nav>
+    </>
   );
 };
 

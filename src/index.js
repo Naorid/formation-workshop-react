@@ -9,6 +9,9 @@ import HomePage from './routes/Home';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Publish from "./routes/Publish";
+import Articles from "./routes/Articles";
+import Weather from "./routes/Weather";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +21,9 @@ root.render(
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/post" element={<Publish />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/weather" element={<Weather />} />
       </Routes>
     </Layout>
   </main>
