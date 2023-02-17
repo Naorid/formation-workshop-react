@@ -4,7 +4,7 @@ import './header.css';
 const Header = () => {
   return (
     <>
-        <h1>Les bases du dev web</h1>
+        <span>Les bases du dev web</span>
         <nav>
             <a href="/">Accueil</a>
             <a href="/post">Publier</a>
