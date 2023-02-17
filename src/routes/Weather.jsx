@@ -1,4 +1,4 @@
-function Publish() {
+function Weather() {
     return (
         <>
             ma page weather
@@ -6,4 +6,4 @@ function Publish() {
     );
 }
 
-export default Publish;
+export default Weather;
